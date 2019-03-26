@@ -11,7 +11,7 @@
           <span>Master</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="login.html">Barang</a>
+          <a class="dropdown-item" href="<?php echo site_url('admin/barang')?>">Barang</a>
           <a class="dropdown-item" href="register.html">Karyawan</a>
           <a class="dropdown-item" href="forgot-password.html">User</a>
           <a class="dropdown-item" href="forgot-password.html">Supplier</a>

@@ -6,9 +6,11 @@ class Dashboard extends CI_Controller {
         parent::__construct();
     }
 
-public function index()
-{
-	$this->load->view('admin/dashboard');
+public function index(){
+	$data = array('title' => 'Dashboard',
+				  'isi'	=> 'admin/dashboard/dashboard_1'
+    			  );
+	$this->load->view('admin/dashboard',$data);
 }
 
 }
