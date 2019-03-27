@@ -1,10 +1,13 @@
+<?php
+$data['Judul'] = 'Halaman Dashboard';
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <!-- Pemanggilan modul head.php -->
-  <?php $this->load->view('admin/_partials/head');?>
+  <?php $this->load->view('admin/_partials/head' , $data);?>
 </head>
 
   <body id="page-top">

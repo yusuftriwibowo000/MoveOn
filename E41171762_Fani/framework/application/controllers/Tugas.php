@@ -7,13 +7,13 @@ class Tugas extends CI_Controller {
 		echo "ini method index pada controller belajar | cara membuat controller pada codeigniter | MalasNgoding.com";
 	}
  
-	public function method(){
+	public function abc(){
 		$this->load->view('view_tugas');
     }
     
     function __construct(){
 		parent::__construct();		
-		$this->load->model('datalogin');
+		$this->load->model('datalogin');		
 	}
  
 	function user(){
