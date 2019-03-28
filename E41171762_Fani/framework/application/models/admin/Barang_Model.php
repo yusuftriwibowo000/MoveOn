@@ -57,10 +57,10 @@ class Barang_Model extends CI_Model
         $this->hargabarang = $post["hargabarang"];
         $this->db->update($this->_table, $this, array('idbarang' => $post['id']));
     }
-    public function delete($id)
+    public function delete($idbarang)
     {
-        return $this->db->delete($this->_table, array('idbarang' => $id));
-        
+        $this->db->where('idbarang',$idbarang);
+        $this->db->delete('barang');
     }
 }
 ?>

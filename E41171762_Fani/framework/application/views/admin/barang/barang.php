@@ -1,5 +1,4 @@
 <?php
-$thispage['page'] = 'master';
 $data['Judul'] = 'Halaman Dashboard';
 
 ?>
@@ -25,7 +24,17 @@ $data['Judul'] = 'Halaman Dashboard';
           
           <!-- Breadcrumbs-->
           <?php $this->load->view('admin/_partials/breadcrumbs');?>
-          
+            <?php if($this->session->flashdata('success')); ?>    
+                <div class="row mt-3">
+                  <div class="col-md-6">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <strong>Data Barang Berhasil Ditambahkan</strong><?php echo $this->session->flashdata('success'); ?>.
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
           <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahModal">
                     Tambah Barang
                   </button>
@@ -35,7 +44,8 @@ $data['Judul'] = 'Halaman Dashboard';
                 <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacinwg="0">
                     <thead>
-                    
+                
+                
                     <tr class="text-center">
                         <th>No</th>
                         <th>Kode Barang</th>
@@ -56,7 +66,7 @@ $data['Judul'] = 'Halaman Dashboard';
                             <td><?= $ambildata-> stokbarang ?></td>
                             <td><?= $ambildata-> hargabarang ?></td>
                             <td><a href="" class="btn btn-small"><i class="fas fa-edit"></i></a>                       
-                            <a href="" class="btn btn-small text-danger"><i class="fas fa-trash"></i></a></td>
+                            <a href="<?php echo base_url ("admin/Barang/delete/".$ambildata->idbarang); ?>" class="btn btn-small text-danger"><i class="fas fa-trash" onclick="return confirm('Yakin ?')"></i></a></td>
                       	
                         </tr>
                     </tbody>
@@ -94,7 +104,7 @@ $data['Judul'] = 'Halaman Dashboard';
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
           <div class="modal-body">
-            <form action="<?php echo base_url().'admin/master/Barang/add'; ?>" method="post">
+            <form action="<?php echo base_url().'admin/Barang/add'; ?>" method="post">
             <?php validation_errors();?>
               <div class="form-group">
                 <label for="kdbarang">Kode Barang</label>
